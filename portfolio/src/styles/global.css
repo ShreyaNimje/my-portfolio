@@ -1,141 +1,321 @@
 /*
   The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+  https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
-}
-body {
-	font-family: var(--font-atkinson);
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
-}
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+    /* Vibrant Yellowish-Orange Palette */
+    --accent: 245, 158, 11; /* Bright Amber/Yellow-Orange */
+    --accent-dark: 217, 119, 6; /* Deeper Warm Orange */
+    --black: 41, 37, 36; /* Warm Espresso Black */
+    --gray: 120, 113, 108;
+    --gray-light: 250, 246, 240; /* Warm cream */
+    --gray-dark: 87, 83, 78;
+    --gray-gradient: rgba(250, 246, 240, 1), rgba(255, 255, 255, 0);
+    /* Decorative glowing shadow */
+    --box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.2), 0 4px 6px -4px rgba(245, 158, 11, 0.1); 
 }
 
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+body {
+    font-family: 'Trebuchet MS', 'Inter', system-ui, sans-serif; 
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background: linear-gradient(135deg, #fffcf9 0%, #fff4e6 100%); 
+    background-attachment: fixed;
+    color: rgb(var(--black));
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.8;
+}
+
+/* --- MODERN HERO LAYOUT --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.hero-content {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+/* --- BADGES & TAGS --- */
+.badge-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background-color: rgba(var(--accent-dark), 0.1);
+    border: 1px solid rgba(var(--accent), 0.3);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgb(var(--accent-dark));
+}
+
+.badge-top .dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(var(--accent));
+    border-radius: 50%;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.tag {
+    padding: 0.4rem 0.8rem;
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    color: rgb(var(--gray-dark));
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin: 0;
+    color: rgb(var(--black));
+}
+
+.gradient-text {
+    background-image: linear-gradient(45deg, rgb(var(--accent-dark)), rgb(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; 
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 500;
+    color: rgb(var(--gray-dark));
+    margin: 0;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    color: rgb(var(--gray));
+    max-width: 90%;
+}
+
+/* --- BUTTONS --- */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    border-bottom: none !important;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, rgb(var(--accent-dark)), rgb(var(--accent)));
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(var(--accent-dark), 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(var(--accent-dark), 0.4);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: rgb(var(--accent-dark)) !important;
+    border: 2px solid rgb(var(--accent-dark));
+}
+
+.btn-outline:hover {
+    background-color: rgba(var(--accent), 0.1);
+}
+
+/* --- IMAGE CARD --- */
+.hero-image-wrapper {
+    flex: 0.8;
+    position: relative;
+}
+
+.image-card-container {
+    position: relative;
+    padding: 6px;
+    background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-dark)));
+    border-radius: 24px;
+    box-shadow: var(--box-shadow);
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+}
+
+.image-floating-label {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.label-text h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: rgb(var(--accent-dark));
+}
+
+.label-text p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: rgb(var(--gray));
+}
+
+.label-icon {
+    background: rgb(var(--accent-dark));
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* General Layout fallbacks */
+p { margin-bottom: 1em; }
+img { max-width: 100%; height: auto; border-radius: 12px; }
+code { padding: 2px 5px; background-color: rgb(var(--gray-light)); border-radius: 2px; }
+pre { padding: 1.5em; border-radius: 8px; }
+pre > code { all: unset; }
+blockquote { border-left: 4px solid rgb(var(--accent)); padding: 0 0 0 20px; margin: 0; font-size: 1.333em; }
+
+/* --- ROADMAP CARD (Replaces Image) --- */
+.roadmap-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.5));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--accent), 0.2);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.roadmap-header h3 {
+    margin-top: 0;
+    color: rgb(var(--accent-dark));
+    font-size: 1.5rem;
+    border-bottom: 2px dashed rgba(var(--accent), 0.3);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+}
+
+/* The vertical connecting line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: rgba(var(--accent), 0.3);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+}
+
+/* The dots on the timeline */
+.timeline-item .dot {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(45deg, rgb(var(--accent-dark)), rgb(var(--accent)));
+    border-radius: 50%;
+    border: 3px solid #fffcf9;
+    box-shadow: 0 0 0 1px rgba(var(--accent), 0.5);
+}
+
+.timeline-item h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: rgb(var(--black));
+}
+
+.timeline-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgb(var(--gray-dark));
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 3rem;
+        margin: 2rem auto;
+    }
+    .hero-content {
+        align-items: center;
+    }
+    .hero-description {
+        max-width: 100%;
+    }
+    .hero-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    main.hero-section {
+        padding: 1em;
+    }
 }

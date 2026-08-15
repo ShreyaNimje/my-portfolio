@@ -1,8 +1,8 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
@@ -12,54 +12,69 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>Welcome to My Portfolio</h1>
-			
-			<h2>About Me</h2>
-			<p>
-				I'm an MCA student specializing in Artificial Intelligence and Machine Learning, with a strong foundation 
-				in Full-Stack Web Development. I'm passionate about building intelligent systems and scalable applications 
-				that solve real-world problems through data-driven insights and innovative technology.
-			</p>
+		<main class="hero-section">
+			<!-- LEFT COLUMN: Text & Buttons -->
+			<div class="hero-content">
+				<div class="badge-top">
+					<span class="dot"></span> MCA Candidate @ RBU • CGPA 8.59
+				</div>
+				
+				<h1 class="hero-title">
+					Hi, I'm <br/>
+					<span class="gradient-text">Shreya Nimje</span>
+				</h1>
+				
+				<h2 class="hero-subtitle">
+					AI & ML Software Engineer • Full Stack Developer
+				</h2>
+				
+				<p class="hero-description">
+					Building intelligent, data-driven products and scalable web architectures. Passionate about translating complex datasets into actionable insights and engineering high-performance systems.
+				</p>
+				
+				<div class="tech-tags">
+					<span class="tag">📊 Data Analytics</span>
+					<span class="tag">⚙️ Python & ML</span>
+					<span class="tag">💻 Full Stack Web</span>
+				</div>
+				
+				<div class="hero-actions">
+					<!-- Make sure to place your SHREYA_NIMJE_Resume.pdf in the 'public' folder -->
+					<a href="/SHREYA_NIMJE_Resume.pdf" class="btn btn-primary" target="_blank">⬇ Download Resume</a>
+					<a href="/blog" class="btn btn-outline">View Projects</a>
+				</div>
+			</div>
 
-			<h2>Technical Expertise</h2>
-			<p>
-				<strong>Languages & Frameworks:</strong> Python, Pandas, Scikit-Learn, JavaScript (ES6+), PHP, Node.js, MySQL
-			</p>
-			<p>
-				My technical toolkit spans across machine learning, data engineering, and modern web development, enabling me 
-				to deliver end-to-end solutions from data pipeline design to production-ready applications.
-			</p>
-
-			<h2>Leadership & Impact</h2>
-			<p>
-				As a <strong>CDPC Coordinator</strong>, I managed and filtered large-scale student recruitment databases, 
-				streamlining communication for over 500 students. This experience refined my ability to handle complex data 
-				at scale, optimize workflows, and lead cross-functional initiatives.
-			</p>
-
-			<h2>Key Projects</h2>
-			<ul>
-				<li>
-					<strong>Financial Intelligence & Transaction Analytics Pipeline:</strong> Built an end-to-end data pipeline 
-					for financial datasets with K-Means clustering for user profiling and AI-powered anomaly detection models.
-				</li>
-				<li>
-					<strong>QuizTrail - MCQ Web Application:</strong> Developed a full-stack platform using PHP and JavaScript 
-					with MySQL backend, featuring secure authentication and real-time score tracking.
-				</li>
-			</ul>
-
-			<h2>What I'm Looking For</h2>
-			<p>
-				I'm seeking opportunities to apply my machine learning expertise and full-stack development skills in roles 
-				that challenge me to build scalable, intelligent systems. Whether it's developing predictive models, designing 
-				data pipelines, or architecting web applications, I'm ready to make an impact.
-			</p>
-
-			<p>
-				<a href="https://github.com">Check out my projects</a> to see how I'm solving problems with code and data science.
-			</p>
+			<!-- RIGHT COLUMN: Education Roadmap -->
+			<div class="hero-image-wrapper">
+				<div class="roadmap-card">
+					<div class="roadmap-header">
+						<h3>🎓 Education</h3>
+					</div>
+					<div class="timeline">
+						<div class="timeline-item">
+							<div class="dot"></div>
+							<h4>MCA - AI/ML Specialization</h4>
+							<p>RBU, Nagpur • 8.59 CGPA</p>
+						</div>
+						<div class="timeline-item">
+							<div class="dot"></div>
+							<h4>BCCA</h4>
+							<p>L.A.D College • 8.09 CGPA</p>
+						</div>
+						<div class="timeline-item">
+							<div class="dot"></div>
+							<h4>HSC (PCM)</h4>
+							<p>Modern School Nagpur • 2022 • 66%</p>
+						</div>
+						<div class="timeline-item">
+							<div class="dot"></div>
+							<h4>SSC</h4>
+							<p>B.K.V.V Nagpur • 2020 • 82.4%</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>
