@@ -126,6 +126,7 @@ h1, h2, h3, h4, h5, h6 {
 /* --- BUTTONS --- */
 .hero-actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -137,7 +138,10 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none !important;
     transition: all 0.2s ease;
     border-bottom: none !important;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
 }
 
 .btn-primary {
@@ -159,6 +163,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-outline:hover {
     background-color: rgba(var(--accent), 0.1);
+}
+
+.btn-ghost {
+    background-color: rgba(var(--accent), 0.12);
+    color: rgb(var(--accent-dark)) !important;
+    border: 2px solid transparent;
+}
+
+.btn-ghost:hover {
+    background-color: rgba(var(--accent), 0.2);
+    transform: translateY(-2px);
 }
 
 /* --- IMAGE CARD --- */
@@ -314,6 +329,10 @@ blockquote { border-left: 4px solid rgb(var(--accent)); padding: 0 0 0 20px; mar
     .hero-actions {
         justify-content: center;
         flex-wrap: wrap;
+    }
+    .hero-actions .btn {
+        flex: 1 1 auto;
+        justify-content: center;
     }
     main.hero-section {
         padding: 1em;
